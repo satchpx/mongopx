@@ -46,6 +46,8 @@ done
 
 cd /mongo-perf
 #${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/simple_insert.js -t 1 > ${LOGFILE}
-${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/* -t 1 2 4 --includeFilter insert update --trialTime 10
+${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/* -t 1 2 4 --includeFilter insert update --trialTime 10 > ${LOGFILE}
 #${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/* -t 1 2 4 --includeFilter insert update --includeFilter core --trialTime 10 > ${LOGFILE}
 
+# pretty print the analyzed results
+python3 analyze.py
