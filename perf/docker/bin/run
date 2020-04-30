@@ -43,8 +43,6 @@ while getopts "h?:m:p:u:s:" opt; do
        exit 1
     esac
 done
-if [$1]
-
 
 cd /mongo-perf
 #${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/simple_insert.js -t 1 > ${LOGFILE}
