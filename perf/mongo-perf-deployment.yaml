@@ -14,7 +14,6 @@ spec:
       labels:
         app: mongodb-perf-tester
     spec:
-      restartPolicy: Never
       containers:
       - name: mongodb-perf-tester
         image: satchpx/mongodb-perf-tester:0.1

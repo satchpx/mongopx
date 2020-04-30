@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongodb-perf-tester
+spec:
+  template:
+    spec:
+      containers:
+      - name: mongodb-perf-tester
+        image: satchpx/mongodb-perf-tester:0.1
+        command: ["/mongo-perf/run"]
+      restartPolicy: Never
+  backoffLimit: 4
