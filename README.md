@@ -28,7 +28,7 @@ kubectl apply -f manifests/mongo-px-sc.yaml
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm search repo bitnami
-helm install --name mongodb --namespace mongodb --values manifests/mongodb-values.yaml bitnami/mongodb
+helm install --name mongodb --namespace mongodb --values manifests/mongodb-values-px.yaml bitnami/mongodb
 ```
 
 ### Test
