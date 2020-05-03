@@ -7,7 +7,7 @@
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm search repo bitnami
-helm install --name mongodb --namespace mongodb --values manifests/mongodb-values-nopx.yaml bitnami/mongodb
+helm install --name mongodb --namespace mongodb --values ../../manifests/mongodb-values-nopx.yaml bitnami/mongodb
 ```
 
 ### Test

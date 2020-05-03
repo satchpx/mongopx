@@ -8,6 +8,7 @@ spec:
       containers:
       - name: mongodb-perf-tester
         image: satchpx/mongodb-perf-tester:0.1
-        command: ["/mongo-perf/run"]
+#        command: ["/mongo-perf/run"]
+        command: ["/bin/sleep infinity"]
       restartPolicy: Never
   backoffLimit: 4
