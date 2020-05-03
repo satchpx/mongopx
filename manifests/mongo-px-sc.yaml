@@ -7,7 +7,8 @@ allowVolumeExpansion: true
 parameters:
  repl: "1"
  priority_io: "high"
- io_profile: "db"
+ io_profile: "db_remote"
+ cow_ondemand: "true"
  disable_io_profile_protection: "1"
  group: "mongo"
  fg: "true"
