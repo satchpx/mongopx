@@ -1,0 +1,4084 @@
+MongoDB shell version v4.2.6
+connecting to: mongodb://mongodb.mongodb:27017/?authSource=admin&compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("cdd89625-498c-4fc3-95dd-86928c72d0c1") }
+MongoDB server version: 4.2.5
+db version: 4.2.5
+2261279b51ea13df08ae708ff278f0679c59dc32
+
+load('util/utils.js');
+load('testcases/complex_insert.js');
+load('testcases/complex_update.js');
+load('testcases/dv_insert.js');
+load('testcases/dv_update.js');
+load('testcases/long_multi_update.js');
+load('testcases/mixed_small.js');
+load('testcases/partial_index.js');
+load('testcases/partial_index_insert.js');
+load('testcases/pipeline_update.js');
+load('testcases/pipelines.js');
+load('testcases/query_unique_idx.js');
+load('testcases/simple_commands.js');
+load('testcases/simple_geo.js');
+load('testcases/simple_insert.js');
+load('testcases/simple_multi_update.js');
+load('testcases/simple_query.js');
+load('testcases/simple_remove.js');
+load('testcases/simple_text.js');
+load('testcases/simple_update.js');
+load('testcases/simple_update_mms.js');
+load('testcases/where.js');
+load('testcases/wildcard_index_insert.js');
+load('testcases/wildcard_index_query.js');
+load('testcases/wildcard_index_remove.js');
+load('testcases/wildcard_index_update.js');
+mongoPerfRunTests([1, 2, 4], 1, 1, 10, 1, ["insert", "update"], [], 0, {"writeCmdMode": "true", "safeGLE": "false", "readCmdMode": "false", "writeConcern": {"j": "false"}}, false, false, {"traceOnly": false}, 'root', 'Password1');
+Insert.SingleIndex.Seq
+1	1836.97258279425
+2	3388.16287779366
+4	5681.273990650582
+Insert.SingleIndex.Uncontested.Rnd
+1	1765.9451266123963
+2	3378.95703586086
+4	5869.527570171766
+Insert.SingleIndex.Contested.Rnd
+1	1738.2665011327128
+2	2916.9886518893236
+4	5985.441601423844
+Insert.MultiIndex.Uncontested.Rnd
+1	1486.8567502356616
+2	3148.737395301232
+4	5553.742469527157
+Insert.MultiIndex.Contested.Rnd
+1	1568.165921813685
+2	2880.275338523595
+4	5213.835123599015
+Insert.MultiKeyIndex.Uncontested.Rnd
+1	1580.4898398581618
+2	2854.9736435465943
+4	4846.700272961169
+Insert.MultiKeyIndex.Contested.Rnd
+1	1529.8929074964751
+2	3014.7793181539114
+4	5429.808242429915
+Insert.BigKeyIndex
+1	420.3104481322817
+2	825.336088252873
+4	1057.0993401791006
+Update.SetWithIndex.Random
+1	1532.4846039093256
+2	3074.468117015756
+4	5199.98652262674
+Update.SetWithMultiIndex.Random
+1	1483.9075525594756
+2	2494.3117741329165
+4	4670.125107599254
+Update.SetWithMultiIndex.String
+1	1133.374535438927
+2	2550.680399745912
+4	3925.031478836444
+Insert.DocValidation.OneInt.Compare
+1	1784.028019698901
+2	3357.5763296418227
+4	6401.610546544137
+Insert.DocValidation.OneInt
+1	1689.8594036976122
+2	3484.209781221619
+4	6172.827161439433
+Insert.DocValidation.OneInt.JSONSchema
+1	1683.7910587185008
+2	3446.628798078447
+4	6143.255437440982
+Insert.DocValidation.TenInt.Compare
+1	1630.9289877083497
+2	3262.6965692190624
+4	5488.331858260203
+Insert.DocValidation.TenInt
+1	1700.954738465335
+2	3322.0654680073717
+4	5580.412704423364
+Insert.DocValidation.TwentyInt.Compare
+1	1695.734157199426
+2	3169.3455015562254
+4	5278.01241053727
+Insert.DocValidation.TwentyInt
+1	1304.1137980779472
+2	2573.8944787253754
+4	4829.326857704127
+Insert.DocValidation.TwentyInt.JSONSchema
+1	1490.4710742520774
+2	3170.055527711216
+4	5555.267831236956
+Insert.DocValidation.OneFiftyInt.Compare
+1	1282.4511074264278
+2	2240.487600485769
+4	3670.3082831663596
+Insert.DocValidation.OneFiftyInt
+1	794.2783959775759
+2	1615.0136580784226
+4	2774.7898860548407
+Insert.DocValidation.OneFiftyInt.JSONSchema
+1	721.2331416877655
+2	1406.0262466897696
+4	2194.4131486844617
+Insert.DocValidation.Variety.Compare
+1	1419.9029174750544
+2	3304.5938654139404
+4	5397.806640473061
+Insert.DocValidation.Variety.JSONSchema
+1	1581.90479294855
+2	3187.0001032902805
+4	5172.6077139219415
+Insert.DocValidation.Array.Compare
+1	1580.5327796319148
+2	2948.7467026582417
+4	4794.478705797696
+Insert.DocValidation.Array.JSONSchema
+1	1287.6370345490107
+2	2224.538420138863
+4	4041.9183679468524
+Insert.DocValidation.Nested.Compare
+1	1732.400386977749
+2	3271.3422182332033
+4	5741.877828187748
+Insert.DocValidation.Nested.JSONSchema
+1	1490.0644041392234
+2	2833.13991775555
+4	4631.923590507121
+Update.DocValidation.OneNum.Compare
+1	1325.4661279210798
+2	3290.645819611061
+4	5673.245458354039
+Update.DocValidation.OneNum
+1	1577.6733128329795
+2	3374.2558259057573
+4	5636.871943511498
+Update.DocValidation.OneNum.JSONSchema
+1	1666.237875054757
+2	3334.52783085915
+4	5269.686979573803
+Update.DocValidation.TenNum.Compare
+1	1599.241402665189
+2	3165.9159743923065
+4	5022.168654556348
+Update.DocValidation.TenNum
+1	1587.5410871371776
+2	3031.396860313969
+4	5182.757883525383
+Update.DocValidation.TwentyNum.Compare
+1	1531.7500183969976
+2	2871.084640307065
+4	5130.341818810114
+Update.DocValidation.TwentyNum
+1	1513.5268525280708
+2	2928.9104549094973
+4	5036.507983803025
+Update.DocValidation.TwentyNum.JSONSchema
+1	1464.4318625259716
+2	2786.265513478713
+4	4920.094024893379
+Update.DocValidation.OneFiftyNum.Compare
+1	812.2696307242688
+2	1563.618079660237
+4	2961.499407920074
+Update.DocValidation.OneFiftyNum
+1	685.9682255038807
+2	1265.8420213960394
+4	2329.2311967636074
+Update.DocValidation.OneFiftyNum.JSONSchema
+1	556.3559067667361
+2	1198.0434988868883
+4	2198.4928705459847
+Update.DocValidation.Variety.Compare
+1	1522.9119203778334
+2	3375.3628012561544
+4	5241.765275534609
+Update.DocValidation.Variety.JSONSchema
+1	1513.5533182737577
+2	3221.967051782156
+4	5243.986613710518
+Update.DocValidation.Array.Compare
+1	2237.8247783198576
+2	4221.713291062539
+4	7136.535588536707
+Update.DocValidation.Array.JSONSchema
+1	2046.3315869103972
+2	3848.17731230075
+4	6876.759086053179
+Update.DocValidation.Nested.Compare
+1	1542.278160025358
+2	3081.402190977145
+4	4943.358001963906
+Update.DocValidation.Nested.JSONSchema
+1	1511.9826701447967
+2	2871.709447515138
+4	4641.391977650927
+MultiUpdate.BigAllDocs.NoIndex
+1	0.38668018242797647
+2	0.6171157199198706
+4	0.9021524619617666
+MultiUpdate.BigAllDocs.Indexed
+1	0.29004720421566205
+2	0.43755477183013625
+4	0.6633300361810354
+MultiUpdate.BigAllDocsMultiChange.NoIndex
+1	0.3539723395394713
+2	0.5624679217513376
+4	0.8730295227631734
+MultiUpdate.BigAllDocsMultiChange.Indexed
+1	0.25182049429341186
+2	0.42436698238155596
+4	0.7263662222273874
+MultiUpdate.Contended.AllDocs.NoIndex
+1	10.68710387175795
+2	17.557421447650068
+4	28.272421145985387
+MultiUpdate.Contended.AllDocs.Indexed
+1	7.9430767348871045
+2	13.081956058009188
+4	23.123818362999675
+Inserts.PartialIndex.FilteredRange
+1	1559.9505567366646
+2	3022.1751728659224
+4	5880.715540382726
+Inserts.PartialIndex.NonFilteredRange
+1	1717.361924101302
+2	3308.1917161535716
+4	6129.855305938841
+Inserts.PartialIndex.FullRange
+1	1604.099583366081
+2	2412.686718494085
+4	4380.353331904178
+Insert.Empty
+1	1215.7876612201032
+2	3114.523549279165
+4	5184.9075831527
+Insert.EmptyCapped
+1	1434.5892497099226
+2	2799.9683271453964
+4	4178.397892863639
+Insert.EmptyCapped.SeqIntID
+1	1448.83559847468
+2	2607.304973587976
+4	3780.822710564956
+Insert.JustID
+1	1381.7985759845228
+2	3178.3949125686463
+4	5335.744833926216
+Insert.IntVector
+1	594.1698767969814
+2	1098.5507069589241
+4	1777.938900609286
+Insert.SeqIntID.Indexed
+1	1672.8818945382457
+2	2973.1924760443394
+4	4978.568855937076
+Insert.IntIDUpsert
+1	1482.321824916645
+2	3010.958256237917
+4	4705.421007748582
+Insert.JustNum
+1	1703.9923076861544
+2	3052.704626903878
+4	5987.298911513817
+Insert.JustNumIndexed
+1	1797.333566911704
+2	3396.4013602401983
+4	6271.438020280536
+InsertIndexedStringsSimpleCollation
+1	1704.9343712249633
+2	3470.050781718581
+4	6273.350708201701
+InsertIndexedStringsNonSimpleCollation
+1	1689.942070269517
+2	3437.9056722193964
+4	5818.864983417375
+Insert.UniqueIndex
+1	1635.6270770264377
+2	3315.837247405134
+4	5875.750142034291
+Insert.UniqueIndexCompound
+1	1686.537923705532
+2	3187.3035807669885
+4	5568.72530754826
+Insert.UniqueIndexCompoundReverse
+1	1601.4573101536655
+2	3526.8310934676233
+4	5651.460844666918
+Insert.LargeDocVector
+1	207.8737167170944
+2	355.4218625624837
+4	527.2929370877933
+MultiUpdate.Uncontended.SingleDoc.NoIndex
+1	1367.398949217653
+2	3190.929852137152
+4	5534.1497374058545
+MultiUpdate.Uncontended.SingleDoc.Indexed
+1	1651.6260837733785
+2	2832.024756719735
+4	4495.531764784931
+MultiUpdate.Uncontended.TwoDocs.NoIndex
+1	1421.554574966981
+2	2769.895027767945
+4	4772.656420129744
+MultiUpdate.Uncontended.TwoDocs.Indexed
+1	1435.8544043633976
+2	2459.28788324586
+4	4146.550996648044
+MultiUpdate.Contended.Low.NoIndex
+1	1587.4953840541907
+2	3171.7326229398864
+4	5871.113857854433
+MultiUpdate.Contended.Low.Indexed
+1	1610.520574680293
+2	3079.9560920307836
+4	5495.4058810761135
+MultiUpdate.Contended.Medium.NoIndex
+1	14.2465980518624
+2	24.024415159366256
+4	40.1727586940133
+MultiUpdate.Contended.Medium.Indexed
+1	11.213948643687797
+2	19.971420896696827
+4	32.59778248151706
+MultiUpdate.Contended.Hot.NoIndex
+1	591.7584585562093
+2	1174.2667430983086
+4	2234.546330154466
+MultiUpdate.Contended.Hot.Indexed
+1	486.630702734319
+2	960.6271805912126
+4	1691.6811012191813
+MultiUpdate.Contended.Doc.Seq.NoIndex
+1	1579.7887803506787
+2	2887.208680644123
+4	4086.5383413567897
+MultiUpdate.Contended.Doc.Seq.Indexed
+1	1400.4228465099166
+2	3015.4520174169693
+4	4830.178447870534
+MultiUpdate.Contended.Doc.Rnd.NoIndex
+1	1936.5791574605744
+2	4127.9143483270955
+4	7721.9544459881645
+MultiUpdate.Contended.Doc.Rnd.Indexed
+1	2154.7110318425075
+2	4075.745817688443
+4	7282.235951305093
+Update.IncNoIndex
+1	1432.3331331899833
+2	3369.0664624202204
+4	5076.440560659267
+Update.IncWithIndex
+1	1605.0964712776026
+2	3237.9519201685816
+4	3935.67537356497
+Update.IncNoIndexUpsert
+1	1080.4170239725588
+2	3322.577045511176
+4	4601.704651283928
+Update.IncWithIndexUpsert
+1	1659.01866925945
+2	2885.6029410353135
+4	5474.341990151724
+Update.IncFewSmallDoc
+1	1633.4837267545777
+2	2667.0403133137033
+4	4171.238134223319
+Update.IncFewLargeDoc
+1	1169.6297052547143
+2	2686.4047641164234
+4	3774.9547784164615
+Update.IncFewSmallDocLongFields
+1	1213.918397807688
+2	2673.1979958113434
+4	4244.634016922745
+Update.IncFewLargeDocLongFields
+1	1435.1968093494077
+2	3121.9650131540884
+4	5282.3495791738505
+Update.SingleDocFieldAtOffset
+1	2217.905933230842
+2	4652.019427975389
+4	8324.230965271521
+Update.FieldAtOffset
+1	136.32816868791832
+2	228.2472438845764
+4	476.16833945414095
+Update.ManyElementsWithinArray
+1	269.9498703090836
+2	645.1233007279307
+4	953.3799216989271
+Update.MatchedElementWithinArray
+1	963.2711143249032
+2	1616.593466490558
+4	2378.207695750777
+Update.UniqueIndex
+1	1096.685835004576
+2	2739.274915426758
+4	5229.696718584026
+Update.UniqueIndexCompoundReverse
+1	1497.6729973298266
+2	3161.4894194587578
+4	5004.431599758469
+Update.MmsIncShallow1
+1	1235.152104972532
+2	2885.230230973404
+4	4346.708004085749
+Update.MmsIncShallow2
+1	1465.4747019129866
+2	2759.964753558364
+4	3967.277955412115
+Update.MmsIncDeep1
+1	1502.811183859034
+2	2799.916928398539
+4	4536.462766792381
+Update.MmsIncDeepSharedPath2
+1	1512.10765990566
+2	2611.3119913227592
+4	4338.731564064694
+Update.MmsIncDeepSharedPath3
+1	1413.0572812145972
+2	2367.11973302361
+4	4196.6091174362655
+Update.MmsIncDeepDistinctPath2
+1	1436.7856318637037
+2	2940.60448869627
+4	4299.820814136336
+Update.MmsIncDeepDistinctPath3
+1	1390.7657950401153
+2	2918.8532402350597
+4	4160.937578737465
+Update.MmsIncDeepDistinctPath4
+1	1431.568295716794
+2	2826.139995120449
+4	4049.069940662164
+Update.MmsSetDeepDistinctPaths
+1	1405.9736029730927
+2	2602.3236332301512
+4	4079.320555134712
+Finished Testing.
+{
+    "errors": [],
+    "end": "2020-05-04T08:38:40.797Z",
+    "results": [
+        {
+            "name": "Insert.SingleIndex.Seq",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1836.97258279425,
+                    "ops_per_sec_values": [
+                        1836.97258279425
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:10:50.990Z",
+                "2": {
+                    "ops_per_sec": 3388.16287779366,
+                    "ops_per_sec_values": [
+                        3388.16287779366
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:11:24.994Z",
+                "4": {
+                    "ops_per_sec": 5681.273990650582,
+                    "ops_per_sec_values": [
+                        5681.273990650582
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.SingleIndex.Uncontested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1765.9451266123963,
+                    "ops_per_sec_values": [
+                        1765.9451266123963
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:11:24.994Z",
+                "2": {
+                    "ops_per_sec": 3378.95703586086,
+                    "ops_per_sec_values": [
+                        3378.95703586086
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:11:58.616Z",
+                "4": {
+                    "ops_per_sec": 5869.527570171766,
+                    "ops_per_sec_values": [
+                        5869.527570171766
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.SingleIndex.Contested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1738.2665011327128,
+                    "ops_per_sec_values": [
+                        1738.2665011327128
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:11:58.616Z",
+                "2": {
+                    "ops_per_sec": 2916.9886518893236,
+                    "ops_per_sec_values": [
+                        2916.9886518893236
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:12:32.400Z",
+                "4": {
+                    "ops_per_sec": 5985.441601423844,
+                    "ops_per_sec_values": [
+                        5985.441601423844
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.MultiIndex.Uncontested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1486.8567502356616,
+                    "ops_per_sec_values": [
+                        1486.8567502356616
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:12:32.401Z",
+                "2": {
+                    "ops_per_sec": 3148.737395301232,
+                    "ops_per_sec_values": [
+                        3148.737395301232
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:13:09.011Z",
+                "4": {
+                    "ops_per_sec": 5553.742469527157,
+                    "ops_per_sec_values": [
+                        5553.742469527157
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.MultiIndex.Contested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1568.165921813685,
+                    "ops_per_sec_values": [
+                        1568.165921813685
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:13:09.011Z",
+                "2": {
+                    "ops_per_sec": 2880.275338523595,
+                    "ops_per_sec_values": [
+                        2880.275338523595
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:13:47.438Z",
+                "4": {
+                    "ops_per_sec": 5213.835123599015,
+                    "ops_per_sec_values": [
+                        5213.835123599015
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.MultiKeyIndex.Uncontested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1580.4898398581618,
+                    "ops_per_sec_values": [
+                        1580.4898398581618
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:13:47.438Z",
+                "2": {
+                    "ops_per_sec": 2854.9736435465943,
+                    "ops_per_sec_values": [
+                        2854.9736435465943
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:14:22.998Z",
+                "4": {
+                    "ops_per_sec": 4846.700272961169,
+                    "ops_per_sec_values": [
+                        4846.700272961169
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.MultiKeyIndex.Contested.Rnd",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1529.8929074964751,
+                    "ops_per_sec_values": [
+                        1529.8929074964751
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:14:22.998Z",
+                "2": {
+                    "ops_per_sec": 3014.7793181539114,
+                    "ops_per_sec_values": [
+                        3014.7793181539114
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:14:57.306Z",
+                "4": {
+                    "ops_per_sec": 5429.808242429915,
+                    "ops_per_sec_values": [
+                        5429.808242429915
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.BigKeyIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 420.3104481322817,
+                    "ops_per_sec_values": [
+                        420.3104481322817
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:14:57.306Z",
+                "2": {
+                    "ops_per_sec": 825.336088252873,
+                    "ops_per_sec_values": [
+                        825.336088252873
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:15:41.868Z",
+                "4": {
+                    "ops_per_sec": 1057.0993401791006,
+                    "ops_per_sec_values": [
+                        1057.0993401791006
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.SetWithIndex.Random",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1532.4846039093256,
+                    "ops_per_sec_values": [
+                        1532.4846039093256
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:15:41.868Z",
+                "2": {
+                    "ops_per_sec": 3074.468117015756,
+                    "ops_per_sec_values": [
+                        3074.468117015756
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:16:24.286Z",
+                "4": {
+                    "ops_per_sec": 5199.98652262674,
+                    "ops_per_sec_values": [
+                        5199.98652262674
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.SetWithMultiIndex.Random",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1483.9075525594756,
+                    "ops_per_sec_values": [
+                        1483.9075525594756
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:16:24.286Z",
+                "2": {
+                    "ops_per_sec": 2494.3117741329165,
+                    "ops_per_sec_values": [
+                        2494.3117741329165
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:17:00.003Z",
+                "4": {
+                    "ops_per_sec": 4670.125107599254,
+                    "ops_per_sec_values": [
+                        4670.125107599254
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.SetWithMultiIndex.String",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1133.374535438927,
+                    "ops_per_sec_values": [
+                        1133.374535438927
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:17:00.004Z",
+                "2": {
+                    "ops_per_sec": 2550.680399745912,
+                    "ops_per_sec_values": [
+                        2550.680399745912
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:17:58.708Z",
+                "4": {
+                    "ops_per_sec": 3925.031478836444,
+                    "ops_per_sec_values": [
+                        3925.031478836444
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneInt.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1784.028019698901,
+                    "ops_per_sec_values": [
+                        1784.028019698901
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:17:58.708Z",
+                "2": {
+                    "ops_per_sec": 3357.5763296418227,
+                    "ops_per_sec_values": [
+                        3357.5763296418227
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:18:31.602Z",
+                "4": {
+                    "ops_per_sec": 6401.610546544137,
+                    "ops_per_sec_values": [
+                        6401.610546544137
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneInt",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1689.8594036976122,
+                    "ops_per_sec_values": [
+                        1689.8594036976122
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:18:31.602Z",
+                "2": {
+                    "ops_per_sec": 3484.209781221619,
+                    "ops_per_sec_values": [
+                        3484.209781221619
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:19:04.204Z",
+                "4": {
+                    "ops_per_sec": 6172.827161439433,
+                    "ops_per_sec_values": [
+                        6172.827161439433
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneInt.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1683.7910587185008,
+                    "ops_per_sec_values": [
+                        1683.7910587185008
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:19:04.207Z",
+                "2": {
+                    "ops_per_sec": 3446.628798078447,
+                    "ops_per_sec_values": [
+                        3446.628798078447
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:19:37.016Z",
+                "4": {
+                    "ops_per_sec": 6143.255437440982,
+                    "ops_per_sec_values": [
+                        6143.255437440982
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.TenInt.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1630.9289877083497,
+                    "ops_per_sec_values": [
+                        1630.9289877083497
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:19:37.016Z",
+                "2": {
+                    "ops_per_sec": 3262.6965692190624,
+                    "ops_per_sec_values": [
+                        3262.6965692190624
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:20:09.946Z",
+                "4": {
+                    "ops_per_sec": 5488.331858260203,
+                    "ops_per_sec_values": [
+                        5488.331858260203
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.TenInt",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1700.954738465335,
+                    "ops_per_sec_values": [
+                        1700.954738465335
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:20:09.946Z",
+                "2": {
+                    "ops_per_sec": 3322.0654680073717,
+                    "ops_per_sec_values": [
+                        3322.0654680073717
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:20:42.579Z",
+                "4": {
+                    "ops_per_sec": 5580.412704423364,
+                    "ops_per_sec_values": [
+                        5580.412704423364
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.TwentyInt.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1695.734157199426,
+                    "ops_per_sec_values": [
+                        1695.734157199426
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:20:42.579Z",
+                "2": {
+                    "ops_per_sec": 3169.3455015562254,
+                    "ops_per_sec_values": [
+                        3169.3455015562254
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:21:15.750Z",
+                "4": {
+                    "ops_per_sec": 5278.01241053727,
+                    "ops_per_sec_values": [
+                        5278.01241053727
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.TwentyInt",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1304.1137980779472,
+                    "ops_per_sec_values": [
+                        1304.1137980779472
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:21:15.750Z",
+                "2": {
+                    "ops_per_sec": 2573.8944787253754,
+                    "ops_per_sec_values": [
+                        2573.8944787253754
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:21:49.356Z",
+                "4": {
+                    "ops_per_sec": 4829.326857704127,
+                    "ops_per_sec_values": [
+                        4829.326857704127
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.TwentyInt.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1490.4710742520774,
+                    "ops_per_sec_values": [
+                        1490.4710742520774
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:21:49.358Z",
+                "2": {
+                    "ops_per_sec": 3170.055527711216,
+                    "ops_per_sec_values": [
+                        3170.055527711216
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:22:23.054Z",
+                "4": {
+                    "ops_per_sec": 5555.267831236956,
+                    "ops_per_sec_values": [
+                        5555.267831236956
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneFiftyInt.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1282.4511074264278,
+                    "ops_per_sec_values": [
+                        1282.4511074264278
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:22:23.054Z",
+                "2": {
+                    "ops_per_sec": 2240.487600485769,
+                    "ops_per_sec_values": [
+                        2240.487600485769
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:22:57.695Z",
+                "4": {
+                    "ops_per_sec": 3670.3082831663596,
+                    "ops_per_sec_values": [
+                        3670.3082831663596
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneFiftyInt",
+            "results": {
+                "1": {
+                    "ops_per_sec": 794.2783959775759,
+                    "ops_per_sec_values": [
+                        794.2783959775759
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:22:57.696Z",
+                "2": {
+                    "ops_per_sec": 1615.0136580784226,
+                    "ops_per_sec_values": [
+                        1615.0136580784226
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:23:32.476Z",
+                "4": {
+                    "ops_per_sec": 2774.7898860548407,
+                    "ops_per_sec_values": [
+                        2774.7898860548407
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.OneFiftyInt.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 721.2331416877655,
+                    "ops_per_sec_values": [
+                        721.2331416877655
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:23:32.479Z",
+                "2": {
+                    "ops_per_sec": 1406.0262466897696,
+                    "ops_per_sec_values": [
+                        1406.0262466897696
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:24:07.915Z",
+                "4": {
+                    "ops_per_sec": 2194.4131486844617,
+                    "ops_per_sec_values": [
+                        2194.4131486844617
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Variety.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1419.9029174750544,
+                    "ops_per_sec_values": [
+                        1419.9029174750544
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:24:07.915Z",
+                "2": {
+                    "ops_per_sec": 3304.5938654139404,
+                    "ops_per_sec_values": [
+                        3304.5938654139404
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:24:41.577Z",
+                "4": {
+                    "ops_per_sec": 5397.806640473061,
+                    "ops_per_sec_values": [
+                        5397.806640473061
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Variety.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1581.90479294855,
+                    "ops_per_sec_values": [
+                        1581.90479294855
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:24:41.580Z",
+                "2": {
+                    "ops_per_sec": 3187.0001032902805,
+                    "ops_per_sec_values": [
+                        3187.0001032902805
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:25:14.399Z",
+                "4": {
+                    "ops_per_sec": 5172.6077139219415,
+                    "ops_per_sec_values": [
+                        5172.6077139219415
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Array.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1580.5327796319148,
+                    "ops_per_sec_values": [
+                        1580.5327796319148
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:25:14.399Z",
+                "2": {
+                    "ops_per_sec": 2948.7467026582417,
+                    "ops_per_sec_values": [
+                        2948.7467026582417
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:25:47.280Z",
+                "4": {
+                    "ops_per_sec": 4794.478705797696,
+                    "ops_per_sec_values": [
+                        4794.478705797696
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Array.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1287.6370345490107,
+                    "ops_per_sec_values": [
+                        1287.6370345490107
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:25:47.282Z",
+                "2": {
+                    "ops_per_sec": 2224.538420138863,
+                    "ops_per_sec_values": [
+                        2224.538420138863
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:26:21.561Z",
+                "4": {
+                    "ops_per_sec": 4041.9183679468524,
+                    "ops_per_sec_values": [
+                        4041.9183679468524
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Nested.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1732.400386977749,
+                    "ops_per_sec_values": [
+                        1732.400386977749
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:26:21.561Z",
+                "2": {
+                    "ops_per_sec": 3271.3422182332033,
+                    "ops_per_sec_values": [
+                        3271.3422182332033
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:26:55.190Z",
+                "4": {
+                    "ops_per_sec": 5741.877828187748,
+                    "ops_per_sec_values": [
+                        5741.877828187748
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.DocValidation.Nested.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1490.0644041392234,
+                    "ops_per_sec_values": [
+                        1490.0644041392234
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:26:55.192Z",
+                "2": {
+                    "ops_per_sec": 2833.13991775555,
+                    "ops_per_sec_values": [
+                        2833.13991775555
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:27:28.714Z",
+                "4": {
+                    "ops_per_sec": 4631.923590507121,
+                    "ops_per_sec_values": [
+                        4631.923590507121
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneNum.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1325.4661279210798,
+                    "ops_per_sec_values": [
+                        1325.4661279210798
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:27:28.714Z",
+                "2": {
+                    "ops_per_sec": 3290.645819611061,
+                    "ops_per_sec_values": [
+                        3290.645819611061
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:28:03.389Z",
+                "4": {
+                    "ops_per_sec": 5673.245458354039,
+                    "ops_per_sec_values": [
+                        5673.245458354039
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneNum",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1577.6733128329795,
+                    "ops_per_sec_values": [
+                        1577.6733128329795
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:28:03.389Z",
+                "2": {
+                    "ops_per_sec": 3374.2558259057573,
+                    "ops_per_sec_values": [
+                        3374.2558259057573
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:28:36.602Z",
+                "4": {
+                    "ops_per_sec": 5636.871943511498,
+                    "ops_per_sec_values": [
+                        5636.871943511498
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneNum.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1666.237875054757,
+                    "ops_per_sec_values": [
+                        1666.237875054757
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:28:36.605Z",
+                "2": {
+                    "ops_per_sec": 3334.52783085915,
+                    "ops_per_sec_values": [
+                        3334.52783085915
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:29:10.299Z",
+                "4": {
+                    "ops_per_sec": 5269.686979573803,
+                    "ops_per_sec_values": [
+                        5269.686979573803
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.TenNum.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1599.241402665189,
+                    "ops_per_sec_values": [
+                        1599.241402665189
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:29:10.299Z",
+                "2": {
+                    "ops_per_sec": 3165.9159743923065,
+                    "ops_per_sec_values": [
+                        3165.9159743923065
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:29:44.028Z",
+                "4": {
+                    "ops_per_sec": 5022.168654556348,
+                    "ops_per_sec_values": [
+                        5022.168654556348
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.TenNum",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1587.5410871371776,
+                    "ops_per_sec_values": [
+                        1587.5410871371776
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:29:44.028Z",
+                "2": {
+                    "ops_per_sec": 3031.396860313969,
+                    "ops_per_sec_values": [
+                        3031.396860313969
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:30:17.765Z",
+                "4": {
+                    "ops_per_sec": 5182.757883525383,
+                    "ops_per_sec_values": [
+                        5182.757883525383
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.TwentyNum.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1531.7500183969976,
+                    "ops_per_sec_values": [
+                        1531.7500183969976
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:30:17.765Z",
+                "2": {
+                    "ops_per_sec": 2871.084640307065,
+                    "ops_per_sec_values": [
+                        2871.084640307065
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:30:51.981Z",
+                "4": {
+                    "ops_per_sec": 5130.341818810114,
+                    "ops_per_sec_values": [
+                        5130.341818810114
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.TwentyNum",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1513.5268525280708,
+                    "ops_per_sec_values": [
+                        1513.5268525280708
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:30:51.981Z",
+                "2": {
+                    "ops_per_sec": 2928.9104549094973,
+                    "ops_per_sec_values": [
+                        2928.9104549094973
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:31:26.555Z",
+                "4": {
+                    "ops_per_sec": 5036.507983803025,
+                    "ops_per_sec_values": [
+                        5036.507983803025
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.TwentyNum.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1464.4318625259716,
+                    "ops_per_sec_values": [
+                        1464.4318625259716
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:31:26.557Z",
+                "2": {
+                    "ops_per_sec": 2786.265513478713,
+                    "ops_per_sec_values": [
+                        2786.265513478713
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:32:01.567Z",
+                "4": {
+                    "ops_per_sec": 4920.094024893379,
+                    "ops_per_sec_values": [
+                        4920.094024893379
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneFiftyNum.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 812.2696307242688,
+                    "ops_per_sec_values": [
+                        812.2696307242688
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:32:01.567Z",
+                "2": {
+                    "ops_per_sec": 1563.618079660237,
+                    "ops_per_sec_values": [
+                        1563.618079660237
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:32:38.001Z",
+                "4": {
+                    "ops_per_sec": 2961.499407920074,
+                    "ops_per_sec_values": [
+                        2961.499407920074
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneFiftyNum",
+            "results": {
+                "1": {
+                    "ops_per_sec": 685.9682255038807,
+                    "ops_per_sec_values": [
+                        685.9682255038807
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:32:38.001Z",
+                "2": {
+                    "ops_per_sec": 1265.8420213960394,
+                    "ops_per_sec_values": [
+                        1265.8420213960394
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:33:19.503Z",
+                "4": {
+                    "ops_per_sec": 2329.2311967636074,
+                    "ops_per_sec_values": [
+                        2329.2311967636074
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.OneFiftyNum.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 556.3559067667361,
+                    "ops_per_sec_values": [
+                        556.3559067667361
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:33:19.507Z",
+                "2": {
+                    "ops_per_sec": 1198.0434988868883,
+                    "ops_per_sec_values": [
+                        1198.0434988868883
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:34:01.571Z",
+                "4": {
+                    "ops_per_sec": 2198.4928705459847,
+                    "ops_per_sec_values": [
+                        2198.4928705459847
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Variety.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1522.9119203778334,
+                    "ops_per_sec_values": [
+                        1522.9119203778334
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:34:01.571Z",
+                "2": {
+                    "ops_per_sec": 3375.3628012561544,
+                    "ops_per_sec_values": [
+                        3375.3628012561544
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:34:36.613Z",
+                "4": {
+                    "ops_per_sec": 5241.765275534609,
+                    "ops_per_sec_values": [
+                        5241.765275534609
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Variety.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1513.5533182737577,
+                    "ops_per_sec_values": [
+                        1513.5533182737577
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:34:36.615Z",
+                "2": {
+                    "ops_per_sec": 3221.967051782156,
+                    "ops_per_sec_values": [
+                        3221.967051782156
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:35:11.200Z",
+                "4": {
+                    "ops_per_sec": 5243.986613710518,
+                    "ops_per_sec_values": [
+                        5243.986613710518
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Array.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 2237.8247783198576,
+                    "ops_per_sec_values": [
+                        2237.8247783198576
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:35:11.200Z",
+                "2": {
+                    "ops_per_sec": 4221.713291062539,
+                    "ops_per_sec_values": [
+                        4221.713291062539
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:35:45.410Z",
+                "4": {
+                    "ops_per_sec": 7136.535588536707,
+                    "ops_per_sec_values": [
+                        7136.535588536707
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Array.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 2046.3315869103972,
+                    "ops_per_sec_values": [
+                        2046.3315869103972
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:35:45.412Z",
+                "2": {
+                    "ops_per_sec": 3848.17731230075,
+                    "ops_per_sec_values": [
+                        3848.17731230075
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:36:21.913Z",
+                "4": {
+                    "ops_per_sec": 6876.759086053179,
+                    "ops_per_sec_values": [
+                        6876.759086053179
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Nested.Compare",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1542.278160025358,
+                    "ops_per_sec_values": [
+                        1542.278160025358
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:36:21.914Z",
+                "2": {
+                    "ops_per_sec": 3081.402190977145,
+                    "ops_per_sec_values": [
+                        3081.402190977145
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:36:56.725Z",
+                "4": {
+                    "ops_per_sec": 4943.358001963906,
+                    "ops_per_sec_values": [
+                        4943.358001963906
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.DocValidation.Nested.JSONSchema",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1511.9826701447967,
+                    "ops_per_sec_values": [
+                        1511.9826701447967
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:36:56.727Z",
+                "2": {
+                    "ops_per_sec": 2871.709447515138,
+                    "ops_per_sec_values": [
+                        2871.709447515138
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:37:31.440Z",
+                "4": {
+                    "ops_per_sec": 4641.391977650927,
+                    "ops_per_sec_values": [
+                        4641.391977650927
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.BigAllDocs.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 0.38668018242797647,
+                    "ops_per_sec_values": [
+                        0.38668018242797647
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:37:31.440Z",
+                "2": {
+                    "ops_per_sec": 0.6171157199198706,
+                    "ops_per_sec_values": [
+                        0.6171157199198706
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:44:04.606Z",
+                "4": {
+                    "ops_per_sec": 0.9021524619617666,
+                    "ops_per_sec_values": [
+                        0.9021524619617666
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.BigAllDocs.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 0.29004720421566205,
+                    "ops_per_sec_values": [
+                        0.29004720421566205
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:44:04.606Z",
+                "2": {
+                    "ops_per_sec": 0.43755477183013625,
+                    "ops_per_sec_values": [
+                        0.43755477183013625
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:51:32.722Z",
+                "4": {
+                    "ops_per_sec": 0.6633300361810354,
+                    "ops_per_sec_values": [
+                        0.6633300361810354
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.BigAllDocsMultiChange.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 0.3539723395394713,
+                    "ops_per_sec_values": [
+                        0.3539723395394713
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:51:32.722Z",
+                "2": {
+                    "ops_per_sec": 0.5624679217513376,
+                    "ops_per_sec_values": [
+                        0.5624679217513376
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T07:58:01.638Z",
+                "4": {
+                    "ops_per_sec": 0.8730295227631734,
+                    "ops_per_sec_values": [
+                        0.8730295227631734
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.BigAllDocsMultiChange.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 0.25182049429341186,
+                    "ops_per_sec_values": [
+                        0.25182049429341186
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T07:58:01.638Z",
+                "2": {
+                    "ops_per_sec": 0.42436698238155596,
+                    "ops_per_sec_values": [
+                        0.42436698238155596
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:04:35.193Z",
+                "4": {
+                    "ops_per_sec": 0.7263662222273874,
+                    "ops_per_sec_values": [
+                        0.7263662222273874
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.AllDocs.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 10.68710387175795,
+                    "ops_per_sec_values": [
+                        10.68710387175795
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:04:35.193Z",
+                "2": {
+                    "ops_per_sec": 17.557421447650068,
+                    "ops_per_sec_values": [
+                        17.557421447650068
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:05:20.622Z",
+                "4": {
+                    "ops_per_sec": 28.272421145985387,
+                    "ops_per_sec_values": [
+                        28.272421145985387
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.AllDocs.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 7.9430767348871045,
+                    "ops_per_sec_values": [
+                        7.9430767348871045
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:05:20.622Z",
+                "2": {
+                    "ops_per_sec": 13.081956058009188,
+                    "ops_per_sec_values": [
+                        13.081956058009188
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:06:15.541Z",
+                "4": {
+                    "ops_per_sec": 23.123818362999675,
+                    "ops_per_sec_values": [
+                        23.123818362999675
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Inserts.PartialIndex.FilteredRange",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1559.9505567366646,
+                    "ops_per_sec_values": [
+                        1559.9505567366646
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:06:15.541Z",
+                "2": {
+                    "ops_per_sec": 3022.1751728659224,
+                    "ops_per_sec_values": [
+                        3022.1751728659224
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:06:50.308Z",
+                "4": {
+                    "ops_per_sec": 5880.715540382726,
+                    "ops_per_sec_values": [
+                        5880.715540382726
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Inserts.PartialIndex.NonFilteredRange",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1717.361924101302,
+                    "ops_per_sec_values": [
+                        1717.361924101302
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:06:50.308Z",
+                "2": {
+                    "ops_per_sec": 3308.1917161535716,
+                    "ops_per_sec_values": [
+                        3308.1917161535716
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:07:24.260Z",
+                "4": {
+                    "ops_per_sec": 6129.855305938841,
+                    "ops_per_sec_values": [
+                        6129.855305938841
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Inserts.PartialIndex.FullRange",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1604.099583366081,
+                    "ops_per_sec_values": [
+                        1604.099583366081
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:07:24.260Z",
+                "2": {
+                    "ops_per_sec": 2412.686718494085,
+                    "ops_per_sec_values": [
+                        2412.686718494085
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:07:58.251Z",
+                "4": {
+                    "ops_per_sec": 4380.353331904178,
+                    "ops_per_sec_values": [
+                        4380.353331904178
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.Empty",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1215.7876612201032,
+                    "ops_per_sec_values": [
+                        1215.7876612201032
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:07:58.253Z",
+                "2": {
+                    "ops_per_sec": 3114.523549279165,
+                    "ops_per_sec_values": [
+                        3114.523549279165
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:08:31.041Z",
+                "4": {
+                    "ops_per_sec": 5184.9075831527,
+                    "ops_per_sec_values": [
+                        5184.9075831527
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.EmptyCapped",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1434.5892497099226,
+                    "ops_per_sec_values": [
+                        1434.5892497099226
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:08:31.041Z",
+                "2": {
+                    "ops_per_sec": 2799.9683271453964,
+                    "ops_per_sec_values": [
+                        2799.9683271453964
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:09:08.874Z",
+                "4": {
+                    "ops_per_sec": 4178.397892863639,
+                    "ops_per_sec_values": [
+                        4178.397892863639
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.EmptyCapped.SeqIntID",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1448.83559847468,
+                    "ops_per_sec_values": [
+                        1448.83559847468
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:09:08.874Z",
+                "2": {
+                    "ops_per_sec": 2607.304973587976,
+                    "ops_per_sec_values": [
+                        2607.304973587976
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:09:41.941Z",
+                "4": {
+                    "ops_per_sec": 3780.822710564956,
+                    "ops_per_sec_values": [
+                        3780.822710564956
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.JustID",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1381.7985759845228,
+                    "ops_per_sec_values": [
+                        1381.7985759845228
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:09:41.941Z",
+                "2": {
+                    "ops_per_sec": 3178.3949125686463,
+                    "ops_per_sec_values": [
+                        3178.3949125686463
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:10:14.774Z",
+                "4": {
+                    "ops_per_sec": 5335.744833926216,
+                    "ops_per_sec_values": [
+                        5335.744833926216
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.IntVector",
+            "results": {
+                "1": {
+                    "ops_per_sec": 594.1698767969814,
+                    "ops_per_sec_values": [
+                        594.1698767969814
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:10:14.774Z",
+                "2": {
+                    "ops_per_sec": 1098.5507069589241,
+                    "ops_per_sec_values": [
+                        1098.5507069589241
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:10:50.246Z",
+                "4": {
+                    "ops_per_sec": 1777.938900609286,
+                    "ops_per_sec_values": [
+                        1777.938900609286
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.SeqIntID.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1672.8818945382457,
+                    "ops_per_sec_values": [
+                        1672.8818945382457
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:10:50.246Z",
+                "2": {
+                    "ops_per_sec": 2973.1924760443394,
+                    "ops_per_sec_values": [
+                        2973.1924760443394
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:11:26.844Z",
+                "4": {
+                    "ops_per_sec": 4978.568855937076,
+                    "ops_per_sec_values": [
+                        4978.568855937076
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.IntIDUpsert",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1482.321824916645,
+                    "ops_per_sec_values": [
+                        1482.321824916645
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:11:26.844Z",
+                "2": {
+                    "ops_per_sec": 3010.958256237917,
+                    "ops_per_sec_values": [
+                        3010.958256237917
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:11:59.765Z",
+                "4": {
+                    "ops_per_sec": 4705.421007748582,
+                    "ops_per_sec_values": [
+                        4705.421007748582
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.JustNum",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1703.9923076861544,
+                    "ops_per_sec_values": [
+                        1703.9923076861544
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:11:59.765Z",
+                "2": {
+                    "ops_per_sec": 3052.704626903878,
+                    "ops_per_sec_values": [
+                        3052.704626903878
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:12:32.488Z",
+                "4": {
+                    "ops_per_sec": 5987.298911513817,
+                    "ops_per_sec_values": [
+                        5987.298911513817
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.JustNumIndexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1797.333566911704,
+                    "ops_per_sec_values": [
+                        1797.333566911704
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:12:32.488Z",
+                "2": {
+                    "ops_per_sec": 3396.4013602401983,
+                    "ops_per_sec_values": [
+                        3396.4013602401983
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:13:06.518Z",
+                "4": {
+                    "ops_per_sec": 6271.438020280536,
+                    "ops_per_sec_values": [
+                        6271.438020280536
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "InsertIndexedStringsSimpleCollation",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1704.9343712249633,
+                    "ops_per_sec_values": [
+                        1704.9343712249633
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:13:06.518Z",
+                "2": {
+                    "ops_per_sec": 3470.050781718581,
+                    "ops_per_sec_values": [
+                        3470.050781718581
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:13:40.461Z",
+                "4": {
+                    "ops_per_sec": 6273.350708201701,
+                    "ops_per_sec_values": [
+                        6273.350708201701
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "InsertIndexedStringsNonSimpleCollation",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1689.942070269517,
+                    "ops_per_sec_values": [
+                        1689.942070269517
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:13:40.462Z",
+                "2": {
+                    "ops_per_sec": 3437.9056722193964,
+                    "ops_per_sec_values": [
+                        3437.9056722193964
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:14:14.876Z",
+                "4": {
+                    "ops_per_sec": 5818.864983417375,
+                    "ops_per_sec_values": [
+                        5818.864983417375
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.UniqueIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1635.6270770264377,
+                    "ops_per_sec_values": [
+                        1635.6270770264377
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:14:14.876Z",
+                "2": {
+                    "ops_per_sec": 3315.837247405134,
+                    "ops_per_sec_values": [
+                        3315.837247405134
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:14:50.641Z",
+                "4": {
+                    "ops_per_sec": 5875.750142034291,
+                    "ops_per_sec_values": [
+                        5875.750142034291
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.UniqueIndexCompound",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1686.537923705532,
+                    "ops_per_sec_values": [
+                        1686.537923705532
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:14:50.641Z",
+                "2": {
+                    "ops_per_sec": 3187.3035807669885,
+                    "ops_per_sec_values": [
+                        3187.3035807669885
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:15:25.436Z",
+                "4": {
+                    "ops_per_sec": 5568.72530754826,
+                    "ops_per_sec_values": [
+                        5568.72530754826
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.UniqueIndexCompoundReverse",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1601.4573101536655,
+                    "ops_per_sec_values": [
+                        1601.4573101536655
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:15:25.436Z",
+                "2": {
+                    "ops_per_sec": 3526.8310934676233,
+                    "ops_per_sec_values": [
+                        3526.8310934676233
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:16:00.195Z",
+                "4": {
+                    "ops_per_sec": 5651.460844666918,
+                    "ops_per_sec_values": [
+                        5651.460844666918
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Insert.LargeDocVector",
+            "results": {
+                "1": {
+                    "ops_per_sec": 207.8737167170944,
+                    "ops_per_sec_values": [
+                        207.8737167170944
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:16:00.195Z",
+                "2": {
+                    "ops_per_sec": 355.4218625624837,
+                    "ops_per_sec_values": [
+                        355.4218625624837
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:16:35.562Z",
+                "4": {
+                    "ops_per_sec": 527.2929370877933,
+                    "ops_per_sec_values": [
+                        527.2929370877933
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Uncontended.SingleDoc.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1367.398949217653,
+                    "ops_per_sec_values": [
+                        1367.398949217653
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:16:35.562Z",
+                "2": {
+                    "ops_per_sec": 3190.929852137152,
+                    "ops_per_sec_values": [
+                        3190.929852137152
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:17:11.386Z",
+                "4": {
+                    "ops_per_sec": 5534.1497374058545,
+                    "ops_per_sec_values": [
+                        5534.1497374058545
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Uncontended.SingleDoc.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1651.6260837733785,
+                    "ops_per_sec_values": [
+                        1651.6260837733785
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:17:11.386Z",
+                "2": {
+                    "ops_per_sec": 2832.024756719735,
+                    "ops_per_sec_values": [
+                        2832.024756719735
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:17:45.811Z",
+                "4": {
+                    "ops_per_sec": 4495.531764784931,
+                    "ops_per_sec_values": [
+                        4495.531764784931
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Uncontended.TwoDocs.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1421.554574966981,
+                    "ops_per_sec_values": [
+                        1421.554574966981
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:17:45.811Z",
+                "2": {
+                    "ops_per_sec": 2769.895027767945,
+                    "ops_per_sec_values": [
+                        2769.895027767945
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:18:18.889Z",
+                "4": {
+                    "ops_per_sec": 4772.656420129744,
+                    "ops_per_sec_values": [
+                        4772.656420129744
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Uncontended.TwoDocs.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1435.8544043633976,
+                    "ops_per_sec_values": [
+                        1435.8544043633976
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:18:18.890Z",
+                "2": {
+                    "ops_per_sec": 2459.28788324586,
+                    "ops_per_sec_values": [
+                        2459.28788324586
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:18:53.625Z",
+                "4": {
+                    "ops_per_sec": 4146.550996648044,
+                    "ops_per_sec_values": [
+                        4146.550996648044
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Low.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1587.4953840541907,
+                    "ops_per_sec_values": [
+                        1587.4953840541907
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:18:53.625Z",
+                "2": {
+                    "ops_per_sec": 3171.7326229398864,
+                    "ops_per_sec_values": [
+                        3171.7326229398864
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:19:26.975Z",
+                "4": {
+                    "ops_per_sec": 5871.113857854433,
+                    "ops_per_sec_values": [
+                        5871.113857854433
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Low.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1610.520574680293,
+                    "ops_per_sec_values": [
+                        1610.520574680293
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:19:26.975Z",
+                "2": {
+                    "ops_per_sec": 3079.9560920307836,
+                    "ops_per_sec_values": [
+                        3079.9560920307836
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:20:01.349Z",
+                "4": {
+                    "ops_per_sec": 5495.4058810761135,
+                    "ops_per_sec_values": [
+                        5495.4058810761135
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Medium.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 14.2465980518624,
+                    "ops_per_sec_values": [
+                        14.2465980518624
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:20:01.349Z",
+                "2": {
+                    "ops_per_sec": 24.024415159366256,
+                    "ops_per_sec_values": [
+                        24.024415159366256
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:20:35.999Z",
+                "4": {
+                    "ops_per_sec": 40.1727586940133,
+                    "ops_per_sec_values": [
+                        40.1727586940133
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Medium.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 11.213948643687797,
+                    "ops_per_sec_values": [
+                        11.213948643687797
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:20:35.999Z",
+                "2": {
+                    "ops_per_sec": 19.971420896696827,
+                    "ops_per_sec_values": [
+                        19.971420896696827
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:21:13.002Z",
+                "4": {
+                    "ops_per_sec": 32.59778248151706,
+                    "ops_per_sec_values": [
+                        32.59778248151706
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Hot.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 591.7584585562093,
+                    "ops_per_sec_values": [
+                        591.7584585562093
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:21:13.002Z",
+                "2": {
+                    "ops_per_sec": 1174.2667430983086,
+                    "ops_per_sec_values": [
+                        1174.2667430983086
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:21:48.303Z",
+                "4": {
+                    "ops_per_sec": 2234.546330154466,
+                    "ops_per_sec_values": [
+                        2234.546330154466
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Hot.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 486.630702734319,
+                    "ops_per_sec_values": [
+                        486.630702734319
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:21:48.303Z",
+                "2": {
+                    "ops_per_sec": 960.6271805912126,
+                    "ops_per_sec_values": [
+                        960.6271805912126
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:22:23.821Z",
+                "4": {
+                    "ops_per_sec": 1691.6811012191813,
+                    "ops_per_sec_values": [
+                        1691.6811012191813
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Doc.Seq.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1579.7887803506787,
+                    "ops_per_sec_values": [
+                        1579.7887803506787
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:22:23.821Z",
+                "2": {
+                    "ops_per_sec": 2887.208680644123,
+                    "ops_per_sec_values": [
+                        2887.208680644123
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:22:57.309Z",
+                "4": {
+                    "ops_per_sec": 4086.5383413567897,
+                    "ops_per_sec_values": [
+                        4086.5383413567897
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Doc.Seq.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1400.4228465099166,
+                    "ops_per_sec_values": [
+                        1400.4228465099166
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:22:57.309Z",
+                "2": {
+                    "ops_per_sec": 3015.4520174169693,
+                    "ops_per_sec_values": [
+                        3015.4520174169693
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:23:37.153Z",
+                "4": {
+                    "ops_per_sec": 4830.178447870534,
+                    "ops_per_sec_values": [
+                        4830.178447870534
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Doc.Rnd.NoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1936.5791574605744,
+                    "ops_per_sec_values": [
+                        1936.5791574605744
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:23:37.153Z",
+                "2": {
+                    "ops_per_sec": 4127.9143483270955,
+                    "ops_per_sec_values": [
+                        4127.9143483270955
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:24:10.433Z",
+                "4": {
+                    "ops_per_sec": 7721.9544459881645,
+                    "ops_per_sec_values": [
+                        7721.9544459881645
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "MultiUpdate.Contended.Doc.Rnd.Indexed",
+            "results": {
+                "1": {
+                    "ops_per_sec": 2154.7110318425075,
+                    "ops_per_sec_values": [
+                        2154.7110318425075
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:24:10.433Z",
+                "2": {
+                    "ops_per_sec": 4075.745817688443,
+                    "ops_per_sec_values": [
+                        4075.745817688443
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:24:44.641Z",
+                "4": {
+                    "ops_per_sec": 7282.235951305093,
+                    "ops_per_sec_values": [
+                        7282.235951305093
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncNoIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1432.3331331899833,
+                    "ops_per_sec_values": [
+                        1432.3331331899833
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:24:44.642Z",
+                "2": {
+                    "ops_per_sec": 3369.0664624202204,
+                    "ops_per_sec_values": [
+                        3369.0664624202204
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:25:17.912Z",
+                "4": {
+                    "ops_per_sec": 5076.440560659267,
+                    "ops_per_sec_values": [
+                        5076.440560659267
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncWithIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1605.0964712776026,
+                    "ops_per_sec_values": [
+                        1605.0964712776026
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:25:17.912Z",
+                "2": {
+                    "ops_per_sec": 3237.9519201685816,
+                    "ops_per_sec_values": [
+                        3237.9519201685816
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:25:52.216Z",
+                "4": {
+                    "ops_per_sec": 3935.67537356497,
+                    "ops_per_sec_values": [
+                        3935.67537356497
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncNoIndexUpsert",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1080.4170239725588,
+                    "ops_per_sec_values": [
+                        1080.4170239725588
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:25:52.216Z",
+                "2": {
+                    "ops_per_sec": 3322.577045511176,
+                    "ops_per_sec_values": [
+                        3322.577045511176
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:26:25.297Z",
+                "4": {
+                    "ops_per_sec": 4601.704651283928,
+                    "ops_per_sec_values": [
+                        4601.704651283928
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncWithIndexUpsert",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1659.01866925945,
+                    "ops_per_sec_values": [
+                        1659.01866925945
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:26:25.298Z",
+                "2": {
+                    "ops_per_sec": 2885.6029410353135,
+                    "ops_per_sec_values": [
+                        2885.6029410353135
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:26:59.112Z",
+                "4": {
+                    "ops_per_sec": 5474.341990151724,
+                    "ops_per_sec_values": [
+                        5474.341990151724
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncFewSmallDoc",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1633.4837267545777,
+                    "ops_per_sec_values": [
+                        1633.4837267545777
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:26:59.112Z",
+                "2": {
+                    "ops_per_sec": 2667.0403133137033,
+                    "ops_per_sec_values": [
+                        2667.0403133137033
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:27:32.343Z",
+                "4": {
+                    "ops_per_sec": 4171.238134223319,
+                    "ops_per_sec_values": [
+                        4171.238134223319
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncFewLargeDoc",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1169.6297052547143,
+                    "ops_per_sec_values": [
+                        1169.6297052547143
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:27:32.344Z",
+                "2": {
+                    "ops_per_sec": 2686.4047641164234,
+                    "ops_per_sec_values": [
+                        2686.4047641164234
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:28:05.597Z",
+                "4": {
+                    "ops_per_sec": 3774.9547784164615,
+                    "ops_per_sec_values": [
+                        3774.9547784164615
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncFewSmallDocLongFields",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1213.918397807688,
+                    "ops_per_sec_values": [
+                        1213.918397807688
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:28:05.597Z",
+                "2": {
+                    "ops_per_sec": 2673.1979958113434,
+                    "ops_per_sec_values": [
+                        2673.1979958113434
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:28:38.662Z",
+                "4": {
+                    "ops_per_sec": 4244.634016922745,
+                    "ops_per_sec_values": [
+                        4244.634016922745
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.IncFewLargeDocLongFields",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1435.1968093494077,
+                    "ops_per_sec_values": [
+                        1435.1968093494077
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:28:38.662Z",
+                "2": {
+                    "ops_per_sec": 3121.9650131540884,
+                    "ops_per_sec_values": [
+                        3121.9650131540884
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:29:11.375Z",
+                "4": {
+                    "ops_per_sec": 5282.3495791738505,
+                    "ops_per_sec_values": [
+                        5282.3495791738505
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.SingleDocFieldAtOffset",
+            "results": {
+                "1": {
+                    "ops_per_sec": 2217.905933230842,
+                    "ops_per_sec_values": [
+                        2217.905933230842
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:29:11.375Z",
+                "2": {
+                    "ops_per_sec": 4652.019427975389,
+                    "ops_per_sec_values": [
+                        4652.019427975389
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:29:55.719Z",
+                "4": {
+                    "ops_per_sec": 8324.230965271521,
+                    "ops_per_sec_values": [
+                        8324.230965271521
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.FieldAtOffset",
+            "results": {
+                "1": {
+                    "ops_per_sec": 136.32816868791832,
+                    "ops_per_sec_values": [
+                        136.32816868791832
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:29:55.719Z",
+                "2": {
+                    "ops_per_sec": 228.2472438845764,
+                    "ops_per_sec_values": [
+                        228.2472438845764
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:30:28.658Z",
+                "4": {
+                    "ops_per_sec": 476.16833945414095,
+                    "ops_per_sec_values": [
+                        476.16833945414095
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.ManyElementsWithinArray",
+            "results": {
+                "1": {
+                    "ops_per_sec": 269.9498703090836,
+                    "ops_per_sec_values": [
+                        269.9498703090836
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:30:28.658Z",
+                "2": {
+                    "ops_per_sec": 645.1233007279307,
+                    "ops_per_sec_values": [
+                        645.1233007279307
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:31:10.683Z",
+                "4": {
+                    "ops_per_sec": 953.3799216989271,
+                    "ops_per_sec_values": [
+                        953.3799216989271
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MatchedElementWithinArray",
+            "results": {
+                "1": {
+                    "ops_per_sec": 963.2711143249032,
+                    "ops_per_sec_values": [
+                        963.2711143249032
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:31:10.683Z",
+                "2": {
+                    "ops_per_sec": 1616.593466490558,
+                    "ops_per_sec_values": [
+                        1616.593466490558
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:32:33.627Z",
+                "4": {
+                    "ops_per_sec": 2378.207695750777,
+                    "ops_per_sec_values": [
+                        2378.207695750777
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.UniqueIndex",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1096.685835004576,
+                    "ops_per_sec_values": [
+                        1096.685835004576
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:32:33.627Z",
+                "2": {
+                    "ops_per_sec": 2739.274915426758,
+                    "ops_per_sec_values": [
+                        2739.274915426758
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:33:09.056Z",
+                "4": {
+                    "ops_per_sec": 5229.696718584026,
+                    "ops_per_sec_values": [
+                        5229.696718584026
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.UniqueIndexCompoundReverse",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1497.6729973298266,
+                    "ops_per_sec_values": [
+                        1497.6729973298266
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:33:09.056Z",
+                "2": {
+                    "ops_per_sec": 3161.4894194587578,
+                    "ops_per_sec_values": [
+                        3161.4894194587578
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:33:44.449Z",
+                "4": {
+                    "ops_per_sec": 5004.431599758469,
+                    "ops_per_sec_values": [
+                        5004.431599758469
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncShallow1",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1235.152104972532,
+                    "ops_per_sec_values": [
+                        1235.152104972532
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:33:44.449Z",
+                "2": {
+                    "ops_per_sec": 2885.230230973404,
+                    "ops_per_sec_values": [
+                        2885.230230973404
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:34:17.457Z",
+                "4": {
+                    "ops_per_sec": 4346.708004085749,
+                    "ops_per_sec_values": [
+                        4346.708004085749
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncShallow2",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1465.4747019129866,
+                    "ops_per_sec_values": [
+                        1465.4747019129866
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:34:17.457Z",
+                "2": {
+                    "ops_per_sec": 2759.964753558364,
+                    "ops_per_sec_values": [
+                        2759.964753558364
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:34:50.253Z",
+                "4": {
+                    "ops_per_sec": 3967.277955412115,
+                    "ops_per_sec_values": [
+                        3967.277955412115
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeep1",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1502.811183859034,
+                    "ops_per_sec_values": [
+                        1502.811183859034
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:34:50.253Z",
+                "2": {
+                    "ops_per_sec": 2799.916928398539,
+                    "ops_per_sec_values": [
+                        2799.916928398539
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:35:23.142Z",
+                "4": {
+                    "ops_per_sec": 4536.462766792381,
+                    "ops_per_sec_values": [
+                        4536.462766792381
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeepSharedPath2",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1512.10765990566,
+                    "ops_per_sec_values": [
+                        1512.10765990566
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:35:23.142Z",
+                "2": {
+                    "ops_per_sec": 2611.3119913227592,
+                    "ops_per_sec_values": [
+                        2611.3119913227592
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:35:56.379Z",
+                "4": {
+                    "ops_per_sec": 4338.731564064694,
+                    "ops_per_sec_values": [
+                        4338.731564064694
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeepSharedPath3",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1413.0572812145972,
+                    "ops_per_sec_values": [
+                        1413.0572812145972
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:35:56.379Z",
+                "2": {
+                    "ops_per_sec": 2367.11973302361,
+                    "ops_per_sec_values": [
+                        2367.11973302361
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:36:29.761Z",
+                "4": {
+                    "ops_per_sec": 4196.6091174362655,
+                    "ops_per_sec_values": [
+                        4196.6091174362655
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeepDistinctPath2",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1436.7856318637037,
+                    "ops_per_sec_values": [
+                        1436.7856318637037
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:36:29.762Z",
+                "2": {
+                    "ops_per_sec": 2940.60448869627,
+                    "ops_per_sec_values": [
+                        2940.60448869627
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:37:02.506Z",
+                "4": {
+                    "ops_per_sec": 4299.820814136336,
+                    "ops_per_sec_values": [
+                        4299.820814136336
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeepDistinctPath3",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1390.7657950401153,
+                    "ops_per_sec_values": [
+                        1390.7657950401153
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:37:02.506Z",
+                "2": {
+                    "ops_per_sec": 2918.8532402350597,
+                    "ops_per_sec_values": [
+                        2918.8532402350597
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:37:35.355Z",
+                "4": {
+                    "ops_per_sec": 4160.937578737465,
+                    "ops_per_sec_values": [
+                        4160.937578737465
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsIncDeepDistinctPath4",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1431.568295716794,
+                    "ops_per_sec_values": [
+                        1431.568295716794
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:37:35.355Z",
+                "2": {
+                    "ops_per_sec": 2826.139995120449,
+                    "ops_per_sec_values": [
+                        2826.139995120449
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:38:07.991Z",
+                "4": {
+                    "ops_per_sec": 4049.069940662164,
+                    "ops_per_sec_values": [
+                        4049.069940662164
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update.MmsSetDeepDistinctPaths",
+            "results": {
+                "1": {
+                    "ops_per_sec": 1405.9736029730927,
+                    "ops_per_sec_values": [
+                        1405.9736029730927
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "start": "2020-05-04T08:38:07.992Z",
+                "2": {
+                    "ops_per_sec": 2602.3236332301512,
+                    "ops_per_sec_values": [
+                        2602.3236332301512
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                },
+                "end": "2020-05-04T08:38:40.797Z",
+                "4": {
+                    "ops_per_sec": 4079.320555134712,
+                    "ops_per_sec_values": [
+                        4079.320555134712
+                    ],
+                    "error_values": [
+                        0
+                    ]
+                }
+            }
+        }
+    ],
+    "start": "2020-05-04T07:10:50.990Z",
+    "storageEngine": "wiredTiger",
+    "basicFields": {
+        "crudOptions": {
+            "writeCmdMode": "true",
+            "safeGLE": "false",
+            "readCmdMode": "false",
+            "writeConcern": {
+                "j": false
+            }
+        },
+        "commit": "2261279b51ea13df08ae708ff278f0679c59dc32",
+        "version": "4.2.5",
+        "platform": "deprecated"
+    }
+}
