@@ -11,4 +11,3 @@ parameters:
  cow_ondemand: "true"
  disable_io_profile_protection: "1"
  group: "mongo"
- fg: "true"
