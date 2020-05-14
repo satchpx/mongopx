@@ -311,10 +311,10 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  #storageClass: "px-mongo-sc"
+  storageClass: "faster"
   accessModes:
     - ReadWriteOnce
-  size: 50Gi
+  size: 100Gi
   annotations: {}
 
 ## Configure the ingress resource that allows you to access the
