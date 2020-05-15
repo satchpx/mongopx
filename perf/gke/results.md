@@ -39,3 +39,71 @@ stats-per-run-INSERT
               99% <= 1.35 milliseconds
             99.9% <= 2.08 milliseconds
 ```
+
+## Test
+
+```text
+export jarfile=./latest-version/mongodb-performance-test.jar
+cd mongodb-performance-test/
+java -jar $jarfile -m insert -o 1000000 -t 10 -db test -c perf -h mongodb.mongodb -port 27017 -u root -p 'Password1' -adb admin -s 10000
+```
+
+## 2.5.1.1 threads:32-24-32
+
+```
+             count = 1000000
+         mean rate = 5171.81 calls/second
+     1-minute rate = 4786.62 calls/second
+     5-minute rate = 5592.03 calls/second
+    15-minute rate = 5900.28 calls/second
+               min = 1.07 milliseconds
+               max = 9.97 milliseconds
+              mean = 1.78 milliseconds
+            stddev = 0.53 milliseconds
+            median = 1.67 milliseconds
+              75% <= 1.90 milliseconds
+              95% <= 2.45 milliseconds
+              98% <= 2.99 milliseconds
+              99% <= 4.44 milliseconds
+            99.9% <= 6.23 milliseconds
+```
+
+## 3.0-ea1
+
+```
+             count = 1000000
+         mean rate = 4865.61 calls/second
+     1-minute rate = 4811.45 calls/second
+     5-minute rate = 5418.57 calls/second
+    15-minute rate = 5786.07 calls/second
+               min = 1.02 milliseconds
+               max = 16.07 milliseconds
+              mean = 1.47 milliseconds
+            stddev = 0.62 milliseconds
+            median = 1.37 milliseconds
+              75% <= 1.54 milliseconds
+              95% <= 1.88 milliseconds
+              98% <= 2.24 milliseconds
+              99% <= 3.68 milliseconds
+            99.9% <= 11.12 milliseconds
+
+```
+
+gcp pd-ssd
+```
+             count = 1000000
+         mean rate = 2532.95 calls/second
+     1-minute rate = 1787.98 calls/second
+     5-minute rate = 3284.28 calls/second
+    15-minute rate = 4684.51 calls/second
+               min = 1.04 milliseconds
+               max = 987.43 milliseconds
+              mean = 5.89 milliseconds
+            stddev = 58.26 milliseconds
+            median = 1.44 milliseconds
+              75% <= 1.60 milliseconds
+              95% <= 2.03 milliseconds
+              98% <= 3.27 milliseconds
+              99% <= 5.05 milliseconds
+            99.9% <= 987.43 milliseconds
+```
