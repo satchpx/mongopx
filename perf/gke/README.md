@@ -56,5 +56,5 @@ java -version
 git clone https://github.com/idealo/mongodb-performance-test.git
 export jarfile=./latest-version/mongodb-performance-test.jar
 cd mongodb-performance-test/
-java -jar $jarfile -m insert -o 1000000 -t 10 -db test -c perf -h mongodb.mongodb -port 27017 -u root -p 'Password1' -adb admin
+java -jar $jarfile -m insert -o 1000000 -t 10 -db test -c perf -h mongodb.mongodb -port 27017 -u root -p 'Password1' -adb admin -s 10000
 ```
